@@ -1,0 +1,14 @@
+﻿@using ShinyTeeth.Utils
+@model MessageList;
+
+@{
+	List<Message> messages = Model.OrderBy(m => m.Type).ToList();
+
+	foreach(Message message in messages)
+	{
+		<div class="alert alert-@message.Type">
+			<strong>@message.Content</strong>
+		</div>
+	}
+
+}

@@ -1,0 +1,37 @@
+﻿@using ShinyTeeth.Models;
+
+@model AppUser;
+
+<div class="card">
+	<div class="text-center">
+		<img class="card-img-top" src="@Model.ImageURL" style="max-width: 250px"/>
+	</div>
+	<div class="card-body">
+		<p>
+			<u>UserName:</u>
+			<b>@Model.UserName</b>
+		</p>
+		<p>
+			<u>Email:</u>
+			<b>@Model.Email</b>
+		</p>
+		<p>
+			<u>Phone: </u>
+			<b>@(Model.PhoneNumber ?? "Unset")</b>
+		</p>
+		<p>
+			<u>BirthDay: </u>
+			<b>@(Model.BirthDay?.ToShortDateString() ?? "Unset")</b>
+		</p>
+	</div>
+	<div class="card-footer">
+		<a class="btn btn-success text-white w-100 mb-2" asp-page="./Update" asp-route-Id="@Model.Id">Update</a>
+		<form method="post" asp-page="/Common/UpdateAvatar" enctype="multipart/form-data" id="update_image_form">
+			<input type="hidden" name="userId" value="@Model.Id"/>
+			<input type="file" name="file" id="update_image_file" style="display: none"/>
+			<label class="btn btn-danger text-white w-100" for="update_image_file" style="cursor: pointer">Change Avatar</label>
+				
+		</form>
+	</div>
+</div>
+

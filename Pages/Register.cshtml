@@ -1,0 +1,47 @@
+﻿@page
+@model ShinyTeeth.Pages.RegisterModel
+@{
+
+}
+
+<partial name="PartialViews/_Messages" for="Messages"></partial>
+
+<form method="post">
+	<div class="card">
+		<div class="card-body">
+			<p>
+				<label asp-for="ViewModel.UserName"></label>
+				<input class="form-control" asp-for="ViewModel.UserName" />
+				<span asp-validation-for="ViewModel.UserName"></span>
+			</p>
+			<p>
+				<label asp-for="ViewModel.FirstPassword">Password</label>
+				<input class="form-control" asp-for="ViewModel.FirstPassword" value="@Model.ViewModel?.FirstPassword" />
+				<span asp-validation-for="ViewModel.FirstPassword"></span>
+			</p>
+			<p>
+				<label asp-for="ViewModel.SecondPassword">ConfirmPassword</label>
+				<input class="form-control" asp-for="ViewModel.SecondPassword" value="@Model.ViewModel?.SecondPassword"/>
+				<span asp-validation-for="ViewModel.SecondPassword"></span>
+			</p>
+			<p>
+				<label asp-for="ViewModel.FullName"></label>
+				<input class="form-control" asp-for="ViewModel.FullName" />
+				<span asp-validation-for="ViewModel.FullName"></span>
+			</p>
+			<p>
+				<label asp-for="ViewModel.Email"></label>
+				<input class="form-control" asp-for="ViewModel.Email" />
+				<span asp-validation-for="ViewModel.Email"></span>
+			</p>
+			<p>
+				<label asp-for="ViewModel.BirthDay"></label>
+				<input class="form-control" asp-for="ViewModel.BirthDay" />
+				<span asp-validation-for="ViewModel.BirthDay"></span>
+			</p>
+		</div>
+		<div class="card-footer">
+			<button class="btn btn-primary">Confirm</button>
+		</div>
+	</div>
+</form>

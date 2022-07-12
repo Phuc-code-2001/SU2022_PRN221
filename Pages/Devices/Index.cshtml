@@ -1,0 +1,64 @@
+﻿@page
+@model ShinyTeeth.Pages.Devices.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Devices Index</h2>
+<hr />
+
+<a class="btn btn-primary mb-2" asp-page="Create">Create New</a>
+
+<div class="card">
+    <div class="card-body">
+
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>DeviceCode</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Value</th>
+                    <th>Room</th>
+                    <th>Status</th>
+                    <th>ImportDate</th>
+                    <th>More</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Devices) {
+                    <tr>
+                        <td>
+                            @item.DeviceCode
+                        </td>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.Description
+                        </td>
+                        <td>
+                            $@item.Value
+                        </td>
+                        <td>
+                            @item.Room.RoomCode
+                        </td>
+                        <td>
+                            @(item.Status ? "active" : "deactive")
+                        </td>
+                        <td>
+                            @item.ImportDate.ToShortDateString()
+                        </td>
+                        <td>
+                            <a class="btn btn-info btn-sm" asp-page="./Details" asp-route-Id="@item.Id">Details</a>
+                            <a class="btn btn-success btn-sm" asp-page="./Edit" asp-route-Id="@item.Id">Edit</a>
+                            <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-Id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

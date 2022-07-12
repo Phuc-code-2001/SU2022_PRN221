@@ -1,0 +1,117 @@
+﻿@page
+@model ShinyTeeth.Pages.Appointments.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+
+
+<div class="card mb-2">
+    <div class="card-header">
+        Appoiment booking by @Model.Appointment.Customer.User.NormalizedUserName at @Model.Appointment.Time
+    </div>
+    <div class="card-body">
+        <p>
+            <b>Room</b>
+            <i>@Model.Appointment.Room.RoomCode</i> - 
+            <span class="badge badge-warning text-white">@Model.Appointment.Status</span>
+        </p>
+
+        <p>
+            <b class="text-primary pb-2">Doctor : @Model.Appointment.Doctor.User.FullName</b> -
+            <i>@Model.Appointment.Doctor.User.UserName</i>
+        </p>
+
+        <p>
+            <b class="pb-2">Duration</b> -
+            <i>@Model.Appointment.Duration (h)</i>
+        </p>
+
+        <p>
+            <b>MedicalRecored</b> -
+            <a target="_blank" href="@Model.Appointment.MedicalProfileURL">View</a>
+        </p>
+
+        <div class="card">
+            <div class="card-header">
+                Content
+            </div>
+            <div class="card-body">
+                @Model.Appointment.Content
+            </div>
+        </div>
+        <br />
+        <div class="card">
+            <div class="card-header">
+                Services
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    @foreach(var service in Model.Appointment.Services)
+                    {
+                        <li class="list-group-item">
+                            <a asp-page="/Services/Details" asp-route-id="@service.Id">@service.ServiceCode: @service.Description - $@service.Price</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success" asp-page="./Edit" asp-route-id="@Model.Appointment.Id">Edit</a>
+    <a class="btn btn-danger" asp-page="./Index">Back to List</a>
+</div>
+
+<hr />
+                    
+@if(Model.FeedBack != null)
+{
+    <div class="card">
+        <div class="card-header">FeedBack @Model.FeedBack.Created.ToLocalTime()</div>
+        <div class="card-body">
+            <p>
+                Rating: @Model.FeedBack.Point*
+            </p>
+            <p>
+                Content: @Model.FeedBack.Content
+            </p>
+        </div>
+    </div>
+    <br />
+}
+
+@if(Model.FeedBackAvailable)
+{
+    
+    <div class="card">
+        <div class="card-header">FeedBack</div>
+        <div class="card-body">
+            <form method="post">
+                <input type="hidden" asp-for="FeedBack.AppointmentId" value="@Model.Appointment.Id"/>
+                @{
+                    var ratingValues = new SelectList(Enumerable.Range(1, 5));
+                }
+                <p>
+                    <label>Rating:</label>
+                    <select class="form-control" asp-for="FeedBack.Point" asp-items="ratingValues"></select>
+                </p>
+                <p>
+                    <label asp-for="FeedBack.Content"></label>
+                    <textarea class="form-control" asp-for="FeedBack.Content"></textarea>
+                </p>
+                <p>
+                    <button class="btn btn-primary">Send</button>
+                </p>
+            </form>
+
+        </div>
+    </div>
+    <br />
+}

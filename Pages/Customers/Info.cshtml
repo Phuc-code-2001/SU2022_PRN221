@@ -1,0 +1,24 @@
+﻿@page
+@model ShinyTeeth.Pages.Customers.InfoModel
+@{
+
+}
+
+<partial name="PartialViews/_Messages" for="Messages"></partial>
+
+<div class="d-flex flex-wrap" style="gap: 10px">
+
+	<partial name="PartialViews/_CustomerInfo" for="Customer"></partial>
+
+</div>
+
+
+@section Scripts {
+	<script>
+		$("#update_image_file").change(function(e) {
+			if (this.files[0]) {
+				$("#update_image_form").submit();
+			}
+		});
+	</script>
+}

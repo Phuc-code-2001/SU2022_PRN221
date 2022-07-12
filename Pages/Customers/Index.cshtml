@@ -1,0 +1,61 @@
+﻿@page
+@model ShinyTeeth.Pages.Customers.IndexModel
+@{
+
+}
+
+<a class="btn btn-primary mb-2" asp-page="/Register">Create/Register</a>
+
+@if(Model.Users != null && Model.Users.Count > 0)
+{
+	<div class="card">
+		<div class="card-body">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>UserId</th>
+						<th>UserName</th>
+						<th>Image</th>
+						<th>Email</th>
+						<th>Permission</th>
+						<th>More</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach(var user in Model.Users) 
+					{
+						<tr>
+							<td>@user.Id</td>
+							<td>@user.UserName</td>
+							<td>
+								<img src="@user.ImageURL" style="width: 40px; height: 40px" class="rounded" />
+							</td>
+							<td>
+								@user.Email
+							</td>
+							<td>
+								<div class="d-flex flex-column">
+									@{
+										var userRoles = Model.GetUserRoles(user);
+										foreach(string roleName in userRoles)
+										{
+											<a class="btn btn-warning text-white mb-1" 
+											asp-page="@($"/{roleName}s/Info")" 
+											asp-route-Id="@user.Id">@roleName.ToLower()</a>
+										}
+
+										<a class="btn btn-secondary text-white mb-1" 
+										asp-page="/Roles/Settings" asp-route-userId="@user.Id">Setting</a>
+									}
+								</div>
+							</td>
+							<td>
+								<a class="btn btn-danger" asp-route-Id="@user.Id">Delete</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+}

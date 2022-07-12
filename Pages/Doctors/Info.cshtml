@@ -1,0 +1,24 @@
+﻿@page
+@model ShinyTeeth.Pages.Doctors.InfoModel
+@{
+}
+
+<partial name="PartialViews/_Messages" for="Messages"></partial>
+
+<div class="d-flex flex-wrap" style="gap: 10px">
+
+	<partial name="PartialViews/_UserInfo" for="Doctor.User"></partial>
+
+	<partial name="PartialViews/_DoctorInfo" for="Doctor"></partial>
+
+</div>
+
+@section Scripts {
+	<script>
+		$("#update_image_file").change(function(e) {
+			if (this.files[0]) {
+				$("#update_image_form").submit();
+			}
+		});
+	</script>
+}

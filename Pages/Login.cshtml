@@ -1,0 +1,31 @@
+﻿@page
+@model ShinyTeeth.Pages.LoginModel
+@{
+
+}
+
+<partial name="PartialViews/_Messages" for="Messages"></partial>
+
+<form method="post">
+	<div class="card">
+		<div class="card-body">
+			<p>
+				<label asp-for="UserName"></label>
+				<input class="form-control" asp-for="UserName" />
+				<span asp-validation-for="UserName"></span>
+			</p>
+			<p>
+				<label asp-for="Password"></label>
+				<input class="form-control" asp-for="Password" />
+				<span asp-validation-for="Password"></span>
+			</p>
+			<p>
+				<input asp-for="RememberMe" />
+				<label asp-for="RememberMe"></label>
+			</p>
+		</div>
+		<div class="card-footer">
+			<button class="btn btn-primary">Login</button>
+		</div>
+	</div>
+</form>

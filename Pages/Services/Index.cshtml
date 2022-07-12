@@ -1,0 +1,57 @@
+﻿@page
+@model ShinyTeeth.Pages.Services.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Services Index</h2>
+<hr />
+
+<a class="btn btn-primary mb-2" asp-page="Create">Create New</a>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ServiceCode</th>
+                    <th>Description</th>
+                    <th>Price($)</th>
+                    <th>Devices</th>
+                    <th>More</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Services) {
+                    <tr>
+                        <td>
+                            @item.ServiceCode
+                        </td>
+                        <td>
+                            @item.Description
+                        </td>
+                        <td>
+                            @item.Price
+                        </td>
+                        <td>
+                            <ul class="list-group">
+                                @foreach(var device in item.Devices)
+                                {
+                                    <li class="list-group-item">
+                                        <a asp-page="/Devices/Details" asp-route-Id="@device.Id">@device.DeviceCode: @device.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            <a class="btn btn-info" asp-page="./Details" asp-route-Id="@item.Id">Details</a>
+                            <a class="btn btn-success" asp-page="./Edit" asp-route-Id="@item.Id">Edit</a>
+                            <a class="btn btn-danger" asp-page="./Delete" asp-route-Id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

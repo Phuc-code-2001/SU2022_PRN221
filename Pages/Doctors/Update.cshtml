@@ -1,0 +1,38 @@
+﻿@page
+@model ShinyTeeth.Pages.Doctors.UpdateModel
+@{
+}
+
+<partial name="PartialViews/_Messages" for="Messages"></partial>
+
+
+@if(Model.View != null)
+{
+	<form method="post" enctype="multipart/form-data">
+		<div class="card">
+			<div class="card-body">
+				@if(Model.Doctor.QualificationURL != null)
+				{
+					<p>
+						<label for="old-qualification">Qualification</label>
+						<a id="old-qualification" href="@Model.Doctor.QualificationURL" target="_blank">View</a>
+					</p>
+				}
+				<p>
+					<label asp-for="View.QualificationImage"></label>
+					<input asp-for="View.QualificationImage" />
+					<span asp-validation-for="View.QualificationImage"></span>
+				</p>
+				<p>
+					<label asp-for="View.Major"></label>
+					<input class="form-control" asp-for="View.Major" />
+					<span asp-validation-for="View.Major"></span>
+				</p>
+				
+			</div>
+			<div class="card-footer">
+				<button class="btn btn-primary">Save</button>
+			</div>
+		</div>
+	</form>
+}

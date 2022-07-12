@@ -1,0 +1,48 @@
+﻿@page
+@model ShinyTeeth.Pages.Roles.SettingsModel
+@{
+	string[] color = { "primary", "secondary", "info", "success", "warning" };
+}
+
+<partial name="PartialViews/_Messages" for="Messages"></partial>
+
+<a class="btn btn-success mb-2" asp-page="/Customers/Index">Back to Index</a>
+
+@if(Model.AddRoles.Count > 0)
+{
+
+	<div class="card">
+		<div class="card-body">
+			<h2>Add Roles</h2>
+			<hr />
+			@foreach(var role in Model.AddRoles.Select((v, i) => new { index=i, value=v }))
+			{
+				<form method="post" class="d-inline">
+					<input type="hidden" name="userId" value="@Model.UserId" />
+					<input type="hidden" name="roleName" value="@role.value.ToLower()" />
+					<input type="hidden" name="operation" value="add" />
+					<button class="btn btn-@(color[role.index])">@role.value</button>
+				</form>
+			}
+		</div>
+	</div>
+}
+<br />
+@if(Model.UserRoles.Count > 0)
+{
+	<div class="card">
+		<div class="card-body">
+			<h2>Remove Roles</h2>
+			<hr />
+			@foreach(var role in Model.UserRoles.Select((v, i) => new { index=i, value=v }))
+			{
+				<form method="post" class="d-inline">
+					<input type="hidden" name="userId" value="@Model.UserId" />
+					<input type="hidden" name="roleName" value="@role.value.ToLower()" />
+					<input type="hidden" name="operation" value="remove" />
+					<button class="btn btn-@(color[role.index])">@role.value</button>
+				</form>
+			}
+		</div>
+	</div>
+}

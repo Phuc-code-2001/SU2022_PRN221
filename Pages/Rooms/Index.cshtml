@@ -1,0 +1,42 @@
+﻿@page
+@model ShinyTeeth.Pages.Rooms.IndexModel
+
+<h2>Room Index</h2>
+<hr />
+
+<a class="btn btn-primary mb-2" asp-page="Create">Create New</a>
+
+@if(Model.Rooms.Count > 0) 
+{
+    <div class="card">
+        <div class="card-body">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>RoomCode</th>
+                        <th>Description</th>
+                        <th>More</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   @foreach (var item in Model.Rooms)
+                   {
+                       <tr>
+                           <td>@item.RoomCode</td>
+                           <td>@item.Description</td>
+                           <td>
+                               <div class="d-flex justify-content-center" style="gap: 5px">
+                                   <a class="btn btn-info" asp-page="Details" asp-route-roomCode="@item.RoomCode">Details</a>
+                                   <a class="btn btn-success" asp-page="Update" asp-route-roomCode="@item.RoomCode">Update</a>
+                                   <a class="btn btn-danger" asp-page="Delete" asp-route-roomCode="@item.RoomCode">Delete</a>
+                               </div>
+                           </td>
+                       </tr>
+                   }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,95 @@
+﻿@page
+@model ShinyTeeth.Pages.Appointments.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="PartialViews/_Messages" for="Messages"></partial>
+
+<h2>Appoinment Index</h2>
+<hr />
+
+<a class="btn btn-primary mb-2" asp-page="Create">Create New</a>
+
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>
+                Customer
+            </th>
+            <th>
+                Doctor
+            </th>
+            <th>
+                Content
+            </th>
+            <th>
+                Time
+            </th>
+            <th>
+                Duration
+            </th>
+            <th>
+               Record
+            </th>
+            <th>
+                Room
+            </th>
+            <th>
+                Services
+            </th>
+            <th>
+                Status
+            </th>
+            <th>More</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Appointment) {
+        <tr>
+            <td>@item.Id</td>
+            <td>
+                @item.Customer.User.UserName
+            </td>
+            <td>
+                @item.Doctor.User.UserName
+            </td>
+            <td>
+                @item.Content
+            </td>
+            <td>
+                @item.Time.ToLocalTime()
+            </td>
+            <td>
+                @item.Duration (h)
+            </td>
+            <td>
+                @if(item.MedicalProfileURL != null)
+                {
+                    <a href="@item.MedicalProfileURL" target="_blank">View</a>
+                }
+            </td>
+            <td>
+                @item.Room?.RoomCode
+            </td>
+            <td>
+                @foreach(var serv in item.Services)
+                {
+                    <a asp-page="/Services/Details" asp-route-Id="@serv.Id">@serv.ServiceCode</a>
+                }
+            </td>
+            <td>
+                <span class="badge badge-warning text-white">@item.Status</span>
+            </td>
+            <td>
+                <a class="btn btn-info mb-1" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                <a class="btn btn-success mb-1" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-danger mb-1" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

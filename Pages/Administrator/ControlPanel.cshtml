@@ -1,0 +1,34 @@
+﻿@page
+@model ShinyTeeth.Pages.Administrator.ControlPanelModel
+@{
+
+}
+
+<h2>Control Panel</h2>
+<hr />
+
+<div class="card">
+	<div class="card-body">
+		<ul class="list-group">
+			<li class="list-group-item">
+				<a class="btn btn-primary" asp-page="/Customers/Index">User Management</a>
+			</li>
+			<li class="list-group-item">
+				<a class="btn btn-secondary" asp-page="/Services/Index">Service Management</a>
+			</li>
+			<li class="list-group-item">
+				<a class="btn btn-info" asp-page="/Appointments/Index">Appointment Management</a>
+			</li>
+			<li class="list-group-item">
+				<a class="btn btn-danger" asp-page="/Notifications/Index">Notification Management</a>
+			</li>
+			<li class="list-group-item">
+				<a class="btn btn-success" asp-page="/Devices/Index">Device Management</a>
+			</li>
+			<li class="list-group-item">
+				<a class="btn bg-dark text-white" asp-page="/Rooms/Index">Room Management</a>
+			</li>
+		</ul>
+	</div>
+</div>
+

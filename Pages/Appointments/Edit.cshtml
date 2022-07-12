@@ -1,0 +1,68 @@
+﻿@page
+@model ShinyTeeth.Pages.Appointments.EditModel
+@{
+}
+
+<h1>Edit</h1>
+<h4>Appointment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Appointment.Id"/>
+            <div class="form-group">
+                <label asp-for="Appointment.CustomerId" class="control-label">Customer</label>
+                <select asp-for="Appointment.CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.DoctorId" class="control-label">Doctor</label>
+                <select asp-for="Appointment.DoctorId" class ="form-control" asp-items="ViewBag.DoctorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.Content" class="control-label"></label>
+                <input asp-for="Appointment.Content" class="form-control" />
+                <span asp-validation-for="Appointment.Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.Time" class="control-label"></label>
+                <input asp-for="Appointment.Time" class="form-control" />
+                <span asp-validation-for="Appointment.Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.Duration" class="control-label">Duration(hour)</label>
+                <input type="number" asp-for="Appointment.Duration" class="form-control" />
+                <span asp-validation-for="Appointment.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.RoomCode" class="control-label">Room</label>
+                <select asp-for="Appointment.RoomCode" class="form-control" asp-items="ViewBag.RoomCode" ></select>
+                <span asp-validation-for="Appointment.RoomCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedicalRecordFile" class="control-label">New MedicalRecordFile (optional): </label>
+                <input asp-for="MedicalRecordFile"/>
+                <span asp-validation-for="MedicalRecordFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Services" class="control-label"></label>
+                <select class="form-control" asp-for="Services" asp-items="ViewBag.ServiceList" multiple></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Appointment.Status"></label>
+                <select class="form-control" asp-for="Appointment.Status" asp-items="ViewBag.StatusList"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<a class="btn btn-success mt-2" asp-page="Index">Back to List</a>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
