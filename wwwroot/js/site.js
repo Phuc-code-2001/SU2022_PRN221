@@ -1,7 +1,7 @@
 ﻿// Write your JavaScript code.
 "use strict";
 
-// Define chathub to use for whole project
+// Define connection to use for whole project
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/serverHub").build();
 connection.start().then(function () {

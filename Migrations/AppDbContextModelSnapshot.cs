@@ -304,6 +304,28 @@ namespace ShinyTeeth.Migrations
                     b.ToTable("Appointments");
                 });
 
+            modelBuilder.Entity("ShinyTeeth.Models.ChatMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SenderId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("ChatMessages");
+                });
+
             modelBuilder.Entity("ShinyTeeth.Models.Customer", b =>
                 {
                     b.Property<string>("UserId")
@@ -581,6 +603,15 @@ namespace ShinyTeeth.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("ShinyTeeth.Models.ChatMessage", b =>
+                {
+                    b.HasOne("ShinyTeeth.Models.AppUser", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId");
+
+                    b.Navigation("Sender");
                 });
 
             modelBuilder.Entity("ShinyTeeth.Models.Customer", b =>

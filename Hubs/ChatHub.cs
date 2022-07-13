@@ -22,16 +22,7 @@ namespace ShinyTeeth.Hubs
             System.Console.WriteLine($"{Context.User.Identity.Name} leave ===> Number Of Connection: {numberOfConnection}");
         }
 
-        // For Debuging
-        public async Task SendToCaller(string message)
-        {
-            await Clients.Caller.SendAsync("receiveTestMessage", Context.ConnectionId, message);
-        }
-        // For Debuging
-        public async Task SendToAllUser(string message)
-        {
-            await Clients.All.SendAsync("receiveTestMessage", Context.ConnectionId, message);
-        }
+        
 
 
 

@@ -23,10 +23,10 @@ namespace ShinyTeeth.Hubs
             System.Console.WriteLine($"{Context.User.Identity.Name} leave ===> Number Of Connection: {numberOfConnection}");
         }
 
-        
-
-        
-
+        public static async Task SendNotification(IHubContext<SignalRServerHub> hubContext, Notification notification)
+        {
+            await hubContext.Clients.User(notification.ReceiverId).SendAsync("receiveNotification", notification);
+        }
 
     }
 }

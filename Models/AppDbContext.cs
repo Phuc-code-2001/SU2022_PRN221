@@ -27,6 +27,8 @@ namespace ShinyTeeth.Models
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<FeedBack> FeedBacks { get; set; }
 
+        public DbSet<ChatMessage> ChatMessages { get; set; }
+
     }
 
     public class Initializer
