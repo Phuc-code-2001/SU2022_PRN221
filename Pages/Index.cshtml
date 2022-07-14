@@ -12,6 +12,24 @@
         
     }
 
+    if(Model.GetUserRoles(Model.LoginUser).Contains(AppRoles.Customer))
+    {
+        <div class="card mb-2">
+	        <div class="card-header">
+		        <a class="btn btn-primary" asp-page="/Messages/Index">Chat with Admin</a>
+	        </div>
+        </div>
+    }
+
+    if(Model.GetUserRoles(Model.LoginUser).Contains(AppRoles.Receptionist))
+    {
+        <div class="card mb-2">
+	        <div class="card-header">
+		        <a class="btn btn-primary" asp-page="/Messages/Receptionist">Open Chatbox</a>
+	        </div>
+        </div>
+    }
+
     <div class="card bg-info text-white">
         <div class="card-body">
             <h4>Notifications</h4>

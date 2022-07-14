@@ -488,3 +488,5 @@ D:\SUMMER 2022\PRN221\Assignment\ShinyTeeth\obj\Debug\net5.0\Razor\Pages\Notific
 D:\SUMMER 2022\PRN221\Assignment\ShinyTeeth\obj\Debug\net5.0\Razor\Pages\Notifications\Edit.cshtml.g.cs
 D:\SUMMER 2022\PRN221\Assignment\ShinyTeeth\obj\Debug\net5.0\Razor\Pages\Notifications\Index.cshtml.g.cs
 D:\SUMMER 2022\PRN221\Assignment\ShinyTeeth\obj\Debug\net5.0\Razor\Pages\Notifications\GoToLink.cshtml.g.cs
+D:\SUMMER 2022\PRN221\Assignment\ShinyTeeth\obj\Debug\net5.0\Razor\Pages\Messages\Index.cshtml.g.cs
+D:\SUMMER 2022\PRN221\Assignment\ShinyTeeth\obj\Debug\net5.0\Razor\Pages\Messages\Receptionist.cshtml.g.cs

@@ -316,12 +316,15 @@ namespace ShinyTeeth.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("SenderId")
+                    b.Property<int>("Type")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SenderId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("ChatMessages");
                 });
@@ -607,11 +610,11 @@ namespace ShinyTeeth.Migrations
 
             modelBuilder.Entity("ShinyTeeth.Models.ChatMessage", b =>
                 {
-                    b.HasOne("ShinyTeeth.Models.AppUser", "Sender")
+                    b.HasOne("ShinyTeeth.Models.AppUser", "User")
                         .WithMany()
-                        .HasForeignKey("SenderId");
+                        .HasForeignKey("UserId");
 
-                    b.Navigation("Sender");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ShinyTeeth.Models.Customer", b =>

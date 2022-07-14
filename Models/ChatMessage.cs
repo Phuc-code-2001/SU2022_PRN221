@@ -9,15 +9,19 @@ namespace ShinyTeeth.Models
     {
         [Key]
         public int Id { get; set; }
-
         [ForeignKey("AppUser")]
-        public string SenderId { get; set; }
-        [ForeignKey("SenderId")]
-        public AppUser Sender { get; set; }
+        public string UserId { get; set; }
+        public AppUser User { get; set; }
 
         public string Content { get; set; }
-
+        public Types Type { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
+
+        public enum Types
+        {
+            Sender,
+            Receiver
+        }
 
     }
 }
