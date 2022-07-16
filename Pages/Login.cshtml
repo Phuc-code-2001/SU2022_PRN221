@@ -6,26 +6,49 @@
 
 <partial name="PartialViews/_Messages" for="Messages"></partial>
 
-<form method="post">
-	<div class="card">
-		<div class="card-body">
-			<p>
-				<label asp-for="UserName"></label>
-				<input class="form-control" asp-for="UserName" />
-				<span asp-validation-for="UserName"></span>
-			</p>
-			<p>
-				<label asp-for="Password"></label>
-				<input class="form-control" asp-for="Password" />
-				<span asp-validation-for="Password"></span>
-			</p>
-			<p>
-				<input asp-for="RememberMe" />
-				<label asp-for="RememberMe"></label>
-			</p>
-		</div>
-		<div class="card-footer">
-			<button class="btn btn-primary">Login</button>
-		</div>
-	</div>
-</form>
+<style>
+    .login-body{
+        height: 100%;
+    }
+    .login-background {
+        height: 100%;
+    }
+</style>
+
+<div class="login-body d-flex justify-content-center align-items-center">
+    <div class="container row">
+        <div class="col-md-4">
+            <form method="post">
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <label asp-for="UserName">User Name:</label>
+                            <input class="form-control" asp-for="UserName" />
+                            <span asp-validation-for="UserName"></span>
+                        </div>
+                        <div>
+                            <label asp-for="Password">Password:</label>
+                            <input class="form-control" asp-for="Password" />
+                            <span asp-validation-for="Password"></span>
+                        </div>
+                        <hr />
+                        <div>
+                            <input asp-for="RememberMe" />
+                            <label asp-for="RememberMe"></label>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8 ">
+            <div class="login-background">
+                <img src="/media/images/login-background.jpg" />
+            </div>
+        </div>
+    </div>
+</div>
+
+

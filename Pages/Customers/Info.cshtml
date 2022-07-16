@@ -4,21 +4,31 @@
 
 }
 
+
+
 <partial name="PartialViews/_Messages" for="Messages"></partial>
 
-<div class="d-flex flex-wrap" style="gap: 10px">
 
-	<partial name="PartialViews/_CustomerInfo" for="Customer"></partial>
+<div class="info-body">
+    <div class="container row">
+        <div class="col-sm-6">
+            <partial name="PartialViews/_UserInfo" for="Customer.User"></partial>
+        </div>
+        <div class="col-sm-6">
+            <partial name="PartialViews/_CustomerInfo" for="Customer"></partial>
 
+        </div>
+    </div>
 </div>
 
 
+
 @section Scripts {
-	<script>
-		$("#update_image_file").change(function(e) {
-			if (this.files[0]) {
-				$("#update_image_form").submit();
-			}
-		});
-	</script>
+    <script>
+        $("#update_image_file").change(function(e) {
+            if (this.files[0]) {
+                $("#update_image_form").submit();
+            }
+        });
+    </script>
 }

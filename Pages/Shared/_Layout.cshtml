@@ -2,6 +2,15 @@
 
 @model IdentityPage;
 
+<style>
+    .header-logo {
+        height: 100px;
+        width: 100px;
+        border: 1px;
+        border-radius: 25px;
+    }
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,57 +19,55 @@
     <title>@ViewData["Title"] - ShinyTeeth</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">ShinyTeeth</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        
-                    </ul>
-                    @if(Model.IsAuthenticated)
-                    {
-                        <ul class="navbar-nav">
-                            @if(Model.IsAdmin)
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-page="/Administrator/ControlPanel">Control Panel</a>
-                                </li>
-                            }
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-page="/Customers/Info" asp-route-Id="@Model.LoginUser.Id">@Model.LoginUser.UserName</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-page="/Logout">Logout</a>
-                            </li>
-                        </ul>
-                    }
-                    else
-                    {
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-page="/Login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-page="/Register" >Register</a>
-                            </li>
-                        </ul>
-                    }
-                </div>
-            </div>
-        </nav>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between mb-4 border-bottom">
+        <div class="col-md-3 d-flex justify-content-center align-items-center">
+            <img class="header-logo" src="~/media/images/ShinyTeeth.png" />
+        </div>
+
+
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li> <a class="btn btn-outline-info mx-1" asp-page="/Index">Home</a></li>
+            <li> <a class="btn btn-outline-info mx-1" asp-page="/Index">Service</a></li>
+            <li> <a class="btn btn-outline-info mx-1" asp-page="/Index">About Us</a></li>
+            <li> <a class="btn btn-outline-info mx-1" asp-page="/Contact">Contact Us</a></li>
+            @if (Model.IsAuthenticated)
+            {
+                @if (Model.IsAdmin)
+                {
+                    <li>
+                        <a class="btn btn-outline-info mx-1" asp-page="/Administrator/ControlPanel">Control Panel</a>
+                    </li>
+                }
+                else
+                {
+                    
+                }
+                
+            }
+
+        </ul>
+
+        <div class="col-md-3 d-flex justify-content-center align-items-center">
+            @if (Model.IsAuthenticated)
+            {
+                <a class="btn btn-outline-info m-2" asp-page="/Customers/Info" asp-route-Id="@Model.LoginUser.Id">@Model.LoginUser.UserName</a>
+                <a class="btn btn-info m-2" asp-page="/Logout">Logout</a>
+
+            }
+            else
+            {
+                <a class="btn btn-outline-info m-2" asp-page="/Login">Login</a>
+                <a class="btn btn-info" asp-page="/Register">Register</a>
+            }
+        </div>
     </header>
+
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>

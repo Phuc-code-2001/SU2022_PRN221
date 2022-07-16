@@ -5,43 +5,79 @@
 }
 
 <partial name="PartialViews/_Messages" for="Messages"></partial>
+<style>
+    .register-body{
+        height: 100%;
+    }
 
-<form method="post">
-	<div class="card">
-		<div class="card-body">
-			<p>
-				<label asp-for="ViewModel.UserName"></label>
-				<input class="form-control" asp-for="ViewModel.UserName" />
-				<span asp-validation-for="ViewModel.UserName"></span>
-			</p>
-			<p>
-				<label asp-for="ViewModel.FirstPassword">Password</label>
-				<input class="form-control" asp-for="ViewModel.FirstPassword" value="@Model.ViewModel?.FirstPassword" />
-				<span asp-validation-for="ViewModel.FirstPassword"></span>
-			</p>
-			<p>
-				<label asp-for="ViewModel.SecondPassword">ConfirmPassword</label>
-				<input class="form-control" asp-for="ViewModel.SecondPassword" value="@Model.ViewModel?.SecondPassword"/>
-				<span asp-validation-for="ViewModel.SecondPassword"></span>
-			</p>
-			<p>
-				<label asp-for="ViewModel.FullName"></label>
-				<input class="form-control" asp-for="ViewModel.FullName" />
-				<span asp-validation-for="ViewModel.FullName"></span>
-			</p>
-			<p>
-				<label asp-for="ViewModel.Email"></label>
-				<input class="form-control" asp-for="ViewModel.Email" />
-				<span asp-validation-for="ViewModel.Email"></span>
-			</p>
-			<p>
-				<label asp-for="ViewModel.BirthDay"></label>
-				<input class="form-control" asp-for="ViewModel.BirthDay" />
-				<span asp-validation-for="ViewModel.BirthDay"></span>
-			</p>
-		</div>
-		<div class="card-footer">
-			<button class="btn btn-primary">Confirm</button>
-		</div>
-	</div>
-</form>
+    .register-background{
+        height: 100%;
+        
+    }
+</style>
+<div class="register-body d-flex justify-content-center align-items-center">
+    <div class="container row">
+        <div class="col-sm-6">
+            <div class="register-background">
+                <div>
+
+                    <h1 class="text-center text-info py-4">
+                        Create An Account.
+                    </h1>
+                </div>
+                <div class="text-info mx-5">
+                    <p>
+                        Welcome to be our customer, join and enjoy best service with best price.
+                    </p>
+                </div>
+                <div>
+                    <img class="my-5 px-5" src="~/media//images/register-background.jpg" width="100%"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <form method="post">
+                <div class="card">
+                    <div class="card-body">
+                        <p>
+                            <label asp-for="ViewModel.UserName">User Name:</label>
+                            <input class="form-control" asp-for="ViewModel.UserName" />
+                            <span asp-validation-for="ViewModel.UserName"></span>
+                        </p>
+                        <p>
+                            <label asp-for="ViewModel.FirstPassword">Password</label>
+                            <input class="form-control" asp-for="ViewModel.FirstPassword" value="@Model.ViewModel?.FirstPassword" />
+                            <span asp-validation-for="ViewModel.FirstPassword"></span>
+                        </p>
+                        <p>
+                            <label asp-for="ViewModel.SecondPassword">Confirm Password:</label>
+                            <input class="form-control" asp-for="ViewModel.SecondPassword" value="@Model.ViewModel?.SecondPassword" />
+                            <span asp-validation-for="ViewModel.SecondPassword"></span>
+                        </p>
+                        <p>
+                            <label asp-for="ViewModel.FullName">Full Name:</label>
+                            <input class="form-control" asp-for="ViewModel.FullName" />
+                            <span asp-validation-for="ViewModel.FullName"></span>
+                        </p>
+                        <p>
+                            <label asp-for="ViewModel.Email">Email:</label>
+                            <input class="form-control" asp-for="ViewModel.Email" />
+                            <span asp-validation-for="ViewModel.Email"></span>
+                        </p>
+                        <p>
+                            <label asp-for="ViewModel.BirthDay">Birthday:</label>
+                            <input class="form-control" asp-for="ViewModel.BirthDay" />
+                            <span asp-validation-for="ViewModel.BirthDay"></span>
+                        </p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-primary">Confirm</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
