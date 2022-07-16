@@ -32,8 +32,4 @@
     <None Include="Pages\PartialViews\_UserInfo.cshtml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\UserActivities\" />
-  </ItemGroup>
-
 </Project>

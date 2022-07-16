@@ -984,3 +984,4 @@ C:\Users\84945\Downloads\SU2022_PRN221-master\obj\Debug\net5.0\ShinyTeeth.genrun
 C:\Users\84945\Downloads\SU2022_PRN221-master\obj\Debug\net5.0\ref\ShinyTeeth.dll
 C:\Users\84945\Downloads\SU2022_PRN221-master\obj\Debug\net5.0\Razor\Pages\Contact.cshtml.g.cs
 D:\SUMMER 2022\PRN221\Assignment\ShinyTeeth\obj\Debug\net5.0\Razor\Pages\Contact.cshtml.g.cs
+D:\SUMMER 2022\PRN221\Assignment\ShinyTeeth\obj\Debug\net5.0\Razor\Pages\UserActivities\Services.cshtml.g.cs
