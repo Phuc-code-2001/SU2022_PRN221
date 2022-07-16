@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SUMMER 2022\\PRN221\\Assignment\\ShinyTeeth\\ShinyTeeth.csproj": {}
+    "C:\\Users\\84945\\Downloads\\SU2022_PRN221-master\\ShinyTeeth.csproj": {}
   },
   "projects": {
-    "D:\\SUMMER 2022\\PRN221\\Assignment\\ShinyTeeth\\ShinyTeeth.csproj": {
+    "C:\\Users\\84945\\Downloads\\SU2022_PRN221-master\\ShinyTeeth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SUMMER 2022\\PRN221\\Assignment\\ShinyTeeth\\ShinyTeeth.csproj",
+        "projectUniqueName": "C:\\Users\\84945\\Downloads\\SU2022_PRN221-master\\ShinyTeeth.csproj",
         "projectName": "ShinyTeeth",
-        "projectPath": "D:\\SUMMER 2022\\PRN221\\Assignment\\ShinyTeeth\\ShinyTeeth.csproj",
-        "packagesPath": "C:\\Users\\PhucHT\\.nuget\\packages\\",
-        "outputPath": "D:\\SUMMER 2022\\PRN221\\Assignment\\ShinyTeeth\\obj\\",
+        "projectPath": "C:\\Users\\84945\\Downloads\\SU2022_PRN221-master\\ShinyTeeth.csproj",
+        "packagesPath": "C:\\Users\\84945\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\84945\\Downloads\\SU2022_PRN221-master\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PhucHT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\84945\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

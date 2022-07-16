@@ -1,24 +1,22 @@
 ﻿@using ShinyTeeth.Models;
 
-@model Customer;
 
-<partial name="PartialViews/_UserInfo" for="User"></partial>
 
 <div class="card" style="min-width: 350px">
 	<div class="card-body">
-		<h4>Customer</h4>
+		<h4>Customer Infomation :</h4>
 		<hr />
 		<p>
-			<u>FullName: </u>
-			<i>@Model.User.FullName</i>
+			<h5>FullName: </h5>
+			<i> - @Model.User.FullName</i>
 		</p>
 		<p>
-			<u>Address: </u>
-			<i>@(Model.Address ?? "Unset")</i>
+			<h5>Address: </h5>
+			<i> - @(Model.Address ?? "Unset")</i>
 		</p>
 		<p>
-			<u>Created: </u>
-			<i>@Model.Created.ToLocalTime()</i>
+			<h5>Created: </h5>
+			<i> - @Model.Created.ToLocalTime()</i>
 		</p>
 	</div>
 </div>
