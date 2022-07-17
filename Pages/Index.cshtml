@@ -5,146 +5,74 @@
     ViewData["Title"] = "Home page";
 }
 
-@if(Model.IsAuthenticated)
-{
-    if(Model.IsAdmin)
-    {
-        
-    }
+<div class="home-body">
+    <div class="container">
+        <div class="row">
+            @*Wellcome*@
+            <div class="col-12 row">
+                @*Wellcome*@
+                <div class="col-md-4 col-sm-6 mt-5">
+                    <h1 class="text-center text-info">Shiny Teeth</h1>
+                    <p style="text-align: justify;">
+                        Thank you for visiting our website, log in to your account and make an appointment now.
+                    </p>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a asp-page="/Login" class="btn btn-outline-info ">
+                                Login
+                            </a>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="text-center">
+                                If you don't have an account, sign up below.
+                            </p>
+                        </div>
 
-    if(Model.GetUserRoles(Model.LoginUser).Contains(AppRoles.Customer))
-    {
-        <div class="card mb-2">
-	        <div class="card-header">
-		        <a class="btn btn-primary" asp-page="/Messages/Index">Chat with Admin</a>
-	        </div>
-        </div>
-    }
-
-    if(Model.GetUserRoles(Model.LoginUser).Contains(AppRoles.Receptionist))
-    {
-        <div class="card mb-2">
-	        <div class="card-header">
-		        <a class="btn btn-primary" asp-page="/Messages/Receptionist">Open Chatbox</a>
-	        </div>
-        </div>
-    }
-
-    <div class="card bg-info text-white">
-        <div class="card-body">
-            <h4>Notifications</h4>
-            
-            <ul class="list-group" id="notifications">
-                @if(ViewBag.Notifications.Count == 0) 
-                {
-                    <li class="list-group-item" id="no-notify-label">
-                        <span class="text-danger bg-white" >No have notification.</span>
-                    </li>
-                }
-                @foreach(var notify in ViewBag.Notifications)
-                {
-                    <li class="list-group-item">
-                        <a name="notify-item" class="btn btn-@(notify.Status == 0? "success" : "info")" target="_blank" asp-page="/Notifications/GoToLink" asp-route-Id="@notify.Id">
-                            @notify.Created.ToLocalTime():
-                            @notify.Content
+                    </div>
+                    <hr />
+                    <div class="text-center">
+                        <a asp-page="/Register" class="btn btn-info  text-white">
+                            Register
                         </a>
-                    </li>
-                }
-            </ul>
+                    </div>
+                </div>
+                @*Wellcome Image*@
+                <div class="col-md-8 col-sm-6">
+                    <img width="100%" height="100%" src="/media//images/Welcome.jpg" />
+                </div>
+            </div>
 
-            @if(ViewBag.NotificationsMaxCount > 10)
-            {
-                <a class="text-right" asp-page="/UserActivities/ViewAllNotifications">ViewAll</a>
-            }
-        </div>
-    </div>
-    <br />
-    <div class="card bg-danger text-white">
-        <div class="card-body">
-            <h4>Appointments</h4>
-            
-            <ul class="list-group">
-                @if(ViewBag.Appointments.Count == 0) 
-                {
-                    <li class="list-group-item" id="no-notify-label">
-                        <span class="text-danger bg-white" >No have appointment.</span>
-                    </li>
-                }
-                @foreach(var appointment in ViewBag.Appointments)
-                {
-                    <li class="list-group-item">
-                        <a class="btn btn-info" target="_blank" asp-page="/Appointments/Details" asp-route-Id="@appointment.Id">
-                            @appointment.Time: @appointment.Content
-                        </a>
-                    </li>
-                }
-            </ul>
+            @*Deltal Profile*@
+            <div class="col-12 row">
+                <div class="col-12 row d-flex justify-content-center my-4">
+                    <h1 class="text-info">
+                        Overview
+                    </h1>
+                </div>
+
+                <div class="col-12 row">
+                    <div class="col-6">
+                        <img width="100%" height="100%" src="/media/images/dental-build.jpg" />
+                    </div>
+                    <div class="col-6 d-flex align-items-center justify-content-center">
+                        <p style="text-align: justify;" class="">
+                            With a construction location in Can Tho, our dental clinic has more than 20 years of experience in the field of oral and maxillofacial surgery. Coming to the clinic, we will provide you with the best quality services and the best prices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-12 row">
+                <div class="col-12 my-4 d-flex align-items-center justify-content-center">
+                    <div style="height: 300px; width: 600px; border-radius: 25px">
+                        <img width="100%" height="100%" src="/media/images/dental-doctor.jpg"/>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+            </div>
 
         </div>
     </div>
-    
-}
-
-@if(ViewBag.Services != null) 
-{
-    <br />
-    <div class="card bg-success text-white">
-        <div class="card-body">
-            <h4>Services</h4>
-            @if(ViewBag.Services.Count > 0)
-            {
-                <ul class="list-group">
-                    @foreach(var service in ViewBag.Services)
-                    {
-                        <li class="list-group-item">
-                            <a asp-page="/Services/Details" asp-route-id="@service.Id">@service.ServiceCode: @service.Description - $@service.Price</a>
-                        </li>
-                    }
-                </ul>
-                <a class="btn btn-danger mt-2" asp-page="/Appointments/Create">Đặt lịch</a>
-            }
-            else
-            {
-                <ul class="list-group">
-                    <li class="list-group-item" id="no-notify-label">
-                        <span class="text-danger bg-white" >No have services.</span>
-                    </li>
-                </ul>
-            }
-
-        </div>
-    </div>
-}
-
-
-
-
-@section Scripts {
-
-    @if(Model.IsAuthenticated)
-    {
-        <script>
-
-            $("a[name='notify-item']").click(function(e) {
-                this.classList.replace("btn-success", "btn-info");
-            });
-
-            connection.on("receiveNotification", function(notification) {
-
-                console.log(notification);
-                let item = 
-                `
-                    <li class="list-group-item">
-                        <a class="btn btn-success" target="_blank" href="/Notifications/GoToLink?Id=${notification.id}">
-                            ${new Date(notification.created).toLocaleString()}:
-                            ${notification.content}
-                        </a>
-                    </li>
-                `;
-                $("#notifications").prepend(item);
-                $("#no-notify-label").hide();
-            });
-
-        </script>
-    }
-}

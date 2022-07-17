@@ -21,7 +21,7 @@ using ShinyTeeth.Utils;
 
 namespace ShinyTeeth.Pages.Appointments
 {
-    [Authorize]
+    [Authorize(Roles = "admin, customer")]
     public class CreateModel : IdentityPage
     {
         private IWebHostEnvironment _env;

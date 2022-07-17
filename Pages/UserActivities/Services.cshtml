@@ -4,29 +4,41 @@
 
 }
 
-<h2 class="text-success">Our Services</h2>
+<div class="col-12 row">
+    <div class="col-6">
+        <h2 class="text-info">Our Services</h2>
+    </div>
+
+    <div class="col-6 d-flex justify-content-end">
+        <a class="btn btn-success mt-2" asp-page="/Appointments/Create">Đặt lịch</a>
+    </div>
+</div>
+
 <hr />
 
 <div class="d-flex flex-wrap justify-content-around" style="gap: 25px">
 
-	@foreach (var item in Model.Services)
-	{
-		<a class="text-decoration-none card" asp-page="/Services/Details" asp-route-id="@item.Id" style="max-width: 250px">
-			<img class="card-img-top" src="https://images.unsplash.com/photo-1656464868371-602be27fd4c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDR8Q0R3dXdYSkFiRXd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60">
-			<div class="card-body">
-				<div class="d-flex justify-content-between">
-					<h4 class="text-success">
-						@item.ServiceCode
-					</h4>
-					<i class="text-dark">
-						$@item.Price
-					</i>
-				</div>
-				<small class="mt-2 text-info">
-					@item.Description
-				</small>
-			</div>
-		</a>
-	}
+    @foreach (var item in Model.Services)
+    {
+        <a class="text-decoration-none card" asp-page="/Services/Details" asp-route-id="@item.Id" style="max-width: 250px">
+            <img class="card-img-top" src="https://dentistthecolonytx.com/wp-content/uploads/2021/12/Malik-Care-Dental-08.png">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h4 class="text-success">
+                        @item.ServiceCode
+                    </h4>
+                    <i class="text-dark">
+                        $@item.Price
+                    </i>
+                </div>
+                <div class="text-center">
+                    <small class="text-info">
+                        @item.Description
+                    </small>
+                </div>
+
+            </div>
+        </a>
+    }
 
 </div>
