@@ -20,7 +20,7 @@
 
     @foreach (var item in Model.Services)
     {
-        <a class="text-decoration-none card" asp-page="/Services/Details" asp-route-id="@item.Id" style="max-width: 250px">
+        <div class="text-decoration-none card" style="max-width: 250px">
             <img class="card-img-top" src="https://dentistthecolonytx.com/wp-content/uploads/2021/12/Malik-Care-Dental-08.png">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
@@ -38,7 +38,7 @@
                 </div>
 
             </div>
-        </a>
+        </div>
     }
 
 </div>
